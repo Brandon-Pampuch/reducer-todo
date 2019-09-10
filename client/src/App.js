@@ -26,10 +26,14 @@ function App() {
   }
 
   const completed = (id) => {
-    console.log('clicked', id)
     dispatch({ type: 'MARK_COMPLETED', payload: id })
   }
-  console.log(state)
+
+  const clearCompleted = () => {
+    dispatch({ type: 'CLEAR_COMPLETED' })
+  }
+
+
   return (
 
     <div className="App">
@@ -43,6 +47,7 @@ function App() {
       <TodoForm
         submitTodo={submitTodo}
         clearAll={clearAll}
+        clearCompleted={clearCompleted}
       />
 
 

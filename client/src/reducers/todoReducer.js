@@ -14,6 +14,9 @@ export const todoReducer = (state, action) => {
             return [];
         case 'MARK_COMPLETED':
             return [...state.map(cur => cur.id === action.payload ? { ...cur, completed: !cur.completed } : cur)];
+        case 'CLEAR_COMPLETED':
+            return [...state.filter(cur => cur.completed ? false : true
+            )];
         default:
             return state;
 

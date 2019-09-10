@@ -4,7 +4,7 @@ const TodoForm = (props) => {
 
     const [todo, setTodo] = useState("")
 
-    const { submitTodo, clearAll } = props
+    const { submitTodo, clearAll, clearCompleted } = props
 
     const textChangeHandler = (e) => {
         const newTodo = e.target.value
@@ -25,6 +25,7 @@ const TodoForm = (props) => {
 
             </form>
             <button onClick={clearAll}>Clear all</button>
+            <button onClick={clearCompleted}>clear completed</button>
         </div>
 
     );
