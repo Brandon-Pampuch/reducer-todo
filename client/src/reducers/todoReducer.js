@@ -4,7 +4,6 @@ export const initialState = [
         completed: false,
         id: 3892987589
     }
-
 ]
 
 export const todoReducer = (state, action) => {
@@ -13,6 +12,8 @@ export const todoReducer = (state, action) => {
             return [...state, action.payload]
         case 'CLEAR_TODO':
             return [];
+        case 'MARK_COMPLETED':
+            return [...state.map(cur => cur.id === action.payload ? { ...cur, completed: !cur.completed } : cur)];
         default:
             return state;
 

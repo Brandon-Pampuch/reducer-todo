@@ -16,19 +16,34 @@ function App() {
       item: payload,
       completed: false,
       id: Date.now()
-
     }
     e.preventDefault();
     dispatch({ type: 'ADD_TODO', payload: newTodo })
-    //will take same action every time and different payload from form
   }
 
+  const clearAll = () => {
+    dispatch({ type: 'CLEAR_TODO' })
+  }
+
+  const completed = (id) => {
+    console.log('clicked', id)
+    dispatch({ type: 'MARK_COMPLETED', payload: id })
+  }
+  console.log(state)
   return (
 
     <div className="App">
 
-      <TodoList state={state} />
-      <TodoForm submitTodo={submitTodo} />
+      <TodoList
+        state={state}
+        completed={completed}
+
+
+      />
+      <TodoForm
+        submitTodo={submitTodo}
+        clearAll={clearAll}
+      />
 
 
     </div>

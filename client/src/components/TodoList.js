@@ -1,13 +1,14 @@
 import React from 'react';
+import Todo from './Todo'
 
 const toDoList = (props) => {
 
-    const { state } = props;
+    const { state, completed } = props;
     return (
         <div>
             {
                 state.map((cur, i) => {
-                    return <h1 key={i}>{cur.item}</h1>
+                    return <Todo key={i} todo={cur} completed={completed} />
                 })
             }
         </div>
