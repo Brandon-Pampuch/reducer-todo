@@ -1,10 +1,7 @@
 import React, { useReducer } from 'react';
-
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
-
 import { initialState, todoReducer } from './reducers/todoReducer'
-
 import './App.css';
 
 function App() {
@@ -37,20 +34,15 @@ function App() {
   return (
 
     <div className="App">
-
       <TodoList
         state={state}
         completed={completed}
-
-
       />
       <TodoForm
         submitTodo={submitTodo}
         clearAll={clearAll}
         clearCompleted={clearCompleted}
       />
-
-
     </div>
   );
 }
