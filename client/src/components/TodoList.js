@@ -3,12 +3,12 @@ import Todo from './Todo'
 
 const toDoList = (props) => {
 
-    const { state, completed } = props;
+    const { state } = props;
     return (
         <div>
             {
                 state.map((cur, i) => {
-                    return <Todo key={i} todo={cur} completed={completed} />
+                    return <Todo key={i} todo={cur} />
                 })
             }
         </div>

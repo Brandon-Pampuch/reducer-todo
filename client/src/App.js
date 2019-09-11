@@ -4,6 +4,8 @@ import TodoForm from './components/TodoForm'
 import { initialState, todoReducer } from './reducers/todoReducer'
 import './App.css';
 
+import TodoContext from './contexts/TodoContext'
+
 function App() {
 
   const [state, dispatch] = useReducer(todoReducer, initialState)
@@ -32,18 +34,19 @@ function App() {
 
 
   return (
-
-    <div className="App">
-      <TodoList
-        state={state}
-        completed={completed}
-      />
-      <TodoForm
-        submitTodo={submitTodo}
-        clearAll={clearAll}
-        clearCompleted={clearCompleted}
-      />
-    </div>
+    <TodoContext.provider value={completed}>
+      {/* context provider allows us to skip a level of prop drilling */}
+      <div className="App">
+        <TodoList
+          state={state}
+        />
+        <TodoForm
+          submitTodo={submitTodo}
+          clearAll={clearAll}
+          clearCompleted={clearCompleted}
+        />
+      </div>
+    </TodoContext.provider>
   );
 }
 
